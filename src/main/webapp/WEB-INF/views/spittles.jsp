@@ -23,13 +23,15 @@
 		</li>
 	</c:forEach>
 	-->
-	 <c:forEach items="${spittleList}" var="spittle" >
-          <li id="spittle_<c:out value="spittle.id"/>">
-            <div><c:out value="${spittle.message}" /></div>
-            <div>
-              <span><c:out value="${spittle.time}" /></span>
-            </div>
-          </li>
-        </c:forEach>
+	<c:forEach items="${spittleList}" var="spittle">
+		<li id="spittle_<c:out value="spittle.id"/>">
+			<div>
+				<c:out value="${spittle.message}" />
+			</div>
+			<div>
+				<span><c:out value="${spittle.time}" /></span>
+			</div>
+		</li>
+	</c:forEach>
 </body>
 </html>

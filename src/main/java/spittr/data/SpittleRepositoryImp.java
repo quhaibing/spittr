@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import spittr.Spitter;
 import spittr.Spittle;
 
 @Component
@@ -20,6 +21,24 @@ public class SpittleRepositoryImp implements SpittleRepository {
 		spittles.add(new Spittle(4L, "A", new Date()));
 		spittles.add(new Spittle(5L, "A", new Date()));
 		return spittles;
+	}
+
+	@Override
+	public Spittle findOne(String spittleId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void save(Spitter spitter) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Spitter findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
