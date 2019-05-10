@@ -2,7 +2,9 @@ package spittr.data;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
@@ -12,6 +14,9 @@ import spittr.Spittle;
 @Component
 public class SpittleRepositoryImp implements SpittleRepository {
 
+	Map<String, Spitter> spitters = new HashMap<>();
+	
+	
 	@Override
 	public List<Spittle> findSpittles(long max, int count) {
 		List<Spittle> spittles = new ArrayList<Spittle>();
@@ -25,20 +30,18 @@ public class SpittleRepositoryImp implements SpittleRepository {
 
 	@Override
 	public Spittle findOne(String spittleId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void save(Spitter spitter) {
-		// TODO Auto-generated method stub
+		spitters.put(spitter.getUsername(), spitter);
 		
 	}
 
 	@Override
 	public Spitter findByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
+		return spitters.get(username);
 	}
 
 }

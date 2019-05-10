@@ -1,6 +1,7 @@
 package spittr.web;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,9 +35,9 @@ public class SpitterController {
 	public String processRegistration(@Valid Spitter spitter, Errors errors) {
 		
 		// 对输入值进行校验
-		if (errors.hasErrors()){
-			return "registerForm";
-		}
+//		if (errors.hasErrors()){
+//			return "registerForm";
+//		}
 		
 		spittleRepository.save(spitter);
 		
@@ -45,8 +46,9 @@ public class SpitterController {
 	}
 	
 	@RequestMapping(value = "/{username}", method = GET)
-	public Spitter showSpitterProfile(@PathVariable("username") String username){
-		return spittleRepository.findByUsername(username);
+	public String showSpitterProfile(@PathVariable("username") String username, Model model){
+		model.addAttribute(spittleRepository.findByUsername(username));
+		return "profile";
 	}
 
 }

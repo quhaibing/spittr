@@ -2,6 +2,7 @@ package spittr.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,8 +40,8 @@ public class SpittleController {
 	 */
 	@RequestMapping(method = GET)
 	public List<Spittle> spittles(@RequestParam(value = "max", defaultValue = "0") long max,
-			@RequestParam(value = "count", defaultValue = "20") int count) {
-		return spittleRepository.findSpittles(max, count);
+			@RequestParam(value = "count", defaultValue = "20") int count, Model model) {
+		return  spittleRepository.findSpittles(Long.MAX_VALUE, 20);
 	}
 
 	/**
